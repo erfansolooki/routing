@@ -1,38 +1,96 @@
+:root {
+  --font-family: Vazir;
+}
+
 .App {
+  font-family: var(--font-family);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.leaflet-popup-content {
+  text-align: center;
+  font-family: var(--font-family);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sourceCoordinates,
+.destinationCoordinates {
+  z-index: 1000;
+  position: absolute;
+  right: 0px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #fff;
+  font-family: var(--font-family);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 8px;
+  margin-left: 4px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  direction: rtl;
+  animation: sourceMount;
+  animation-duration: 1.1s;
+  width: max-content;
+  height: max-content;
 }
 
-.App-link {
-  color: #61dafb;
+.destinationCoordinates {
+  top: 3.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sourceCoordinates {
+  top: 0;
+}
+
+.sourceText {
+  margin-left: 4px;
+}
+
+.sourceCoordinates svg,
+.destinationCoordinates svg {
+  font-size: 16px;
+}
+
+.sourceCoordinates svg {
+  color: #31ac52;
+}
+
+.destinationCoordinates svg {
+  color: #d44444;
+}
+
+
+.sourceCoordinates span:nth-child(1),
+.destinationCoordinates span:nth-child(1) {
+  margin-right: .25rem;
+  font-family: var(--font-family);
+}
+
+@keyframes sourceMount {
+  0% {
+    right: -100px;
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    right: 0px;
   }
+}
+
+.leaflet-pane .leaflet-marker-pane img {
+  border: none;
+  background: none;
+}
+
+.leaflet-pane .leaflet-marker-pane img:nth-child(1) {
+  width: 55px !important;
+  height: 50px !important;
+}
+
+.leaflet-pane .leaflet-marker-pane img:nth-child(2) {
+  width: 45px !important;
+  height: 44px !important;
 }
