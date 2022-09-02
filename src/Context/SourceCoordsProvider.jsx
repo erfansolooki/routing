@@ -1,6 +1,6 @@
 // SourceProvider
 import { createContext, useContext, useState, useRef, useMemo } from "react";
-import { Marker } from "react-leaflet";
+import { Marker, Tooltip } from "react-leaflet";
 import L from "leaflet";
 
 const SourceProvider = createContext();
@@ -35,8 +35,9 @@ const SourceCoordsProvider = ({ children }) => {
           position={position}
           ref={markerRef}
           icon={sourceIcon}
-        />
-        {children}
+        >
+          {children}
+        </Marker>
       </SourceProviderDispatcher.Provider>
     </SourceProvider.Provider>
   );

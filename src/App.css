@@ -36,6 +36,8 @@
   animation-duration: 1.1s;
   width: max-content;
   height: max-content;
+  pointer-events: none;
+  pointer-events: visiblePainted;
 }
 
 .destinationCoordinates {
@@ -86,8 +88,8 @@
 }
 
 .leaflet-pane .leaflet-marker-pane img:nth-child(1) {
-  width: 55px !important;
-  height: 50px !important;
+  width: 37px !important;
+  height: 39px !important;
 }
 
 .leaflet-pane .leaflet-marker-pane img:nth-child(2) {
