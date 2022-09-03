@@ -1,16 +1,15 @@
 import { RiSearchLine } from "react-icons/ri";
-import { useDestinationCoords } from "../../Context/DestinationCoordsProvider";
 import { useState } from "react";
 import "./Search.css";
 import http from "../../Services/httpServices";
 import { useVehiclesListAction } from "../../Context/VehiclesListProvider";
 
 const SearchVehicle = () => {
-  const { latitude, longitude } = useDestinationCoords();
   const [searchValue, setSearchValue] = useState("");
   const token = JSON.parse(localStorage.getItem("userToken"));
   const vehiclesListAction = useVehiclesListAction();
   const [error, setError] = useState(null);
+  const [destinationPosition, setDestinationPosition] = useState("");
 
   const handleSearchInputChanges = (event) => {
     setSearchValue(event.target.value);
@@ -32,24 +31,38 @@ const SearchVehicle = () => {
       });
   };
 
+  const SendRequestHandle = () => {
+    const sourcePosition = localStorage.getItem("sourcePosition");
+    console.log(sourcePosition, "search");
+  };
+
+  window.addEventListener("click", () => {
+    const destinationPosition = localStorage.getItem("destinationPosition");
+    setDestinationPosition(destinationPosition);
+  });
+
   return (
     <main className="searchVehicle">
       <section className="main">
-        <section>
+        <section
+          className={!destinationPosition ? "hiddenSearchBar" : "showSearchBar"}
+        >
           <RiSearchLine className="d-block" onClick={listOfVehiclesHandle} />
           <input
             type="text"
             placeholder="نوع ماشین آلات"
             value={searchValue}
             onChange={handleSearchInputChanges}
+            disabled={!destinationPosition ? true : false}
           />
           <p>{error}</p>
         </section>
         <button
-          className={latitude === 0 && longitude === 0 ? "disable" : "active"}
-          disabled={latitude === 0 && longitude === 0 ? true : false}
+          className={!destinationPosition ? "disable" : "active"}
+          disabled={!destinationPosition ? true : false}
+          onClick={SendRequestHandle}
         >
-          ثبت درخواست
+          {!destinationPosition ? "ابتدا مقصد را مشخص کنید" : "ثبت درخواست"}
         </button>
       </section>
     </main>

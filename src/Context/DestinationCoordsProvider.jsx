@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { Marker, useMapEvents } from "react-leaflet";
 import L from "leaflet";
+import { useEffect } from "react";
 
 const DestinationProvider = createContext();
 const DestinationProviderDispatcher = createContext();
@@ -16,6 +17,8 @@ const DestinationCoordsProvider = ({ children }) => {
       });
     },
   });
+
+  localStorage.setItem("destinationPosition", JSON.stringify(position));
 
   return (
     <DestinationProvider.Provider value={position}>

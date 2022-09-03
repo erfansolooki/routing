@@ -1,10 +1,8 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import SourceCoordinates from "./SourceCoordinates";
 import DestinationCoordinate from "./DestinationCoordinate";
-
 import SourceCoordsProvider from "../Context/SourceCoordsProvider";
 import DestinationCoordsProvider from "../Context/DestinationCoordsProvider";
-import SearchVehicle from "./Search/SearchVehicle";
 import VehiclesList from "./VehiclesList/VehiclesList";
 
 const center = {
@@ -24,7 +22,6 @@ function DraggableMarkerExample() {
           <SourceCoordinates />
           <DestinationCoordinate />
           <VehiclesList />
-          <SearchVehicle />
         </DestinationCoordsProvider>
       </SourceCoordsProvider>
     </MapContainer>

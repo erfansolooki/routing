@@ -13,7 +13,7 @@ const VehiclesList = () => {
     console.log(id);
     const cloneVehiclesList = [...vehiclesList];
     const filterProducts = cloneVehiclesList.filter(
-      (product) => product.id !== id
+      (product) => product.id === id
     );
     return vehiclesListAction(filterProducts);
   };

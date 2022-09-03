@@ -5,7 +5,6 @@ const VehiclesListProviderContextDispatcher = createContext();
 
 const VehiclesListProvider = ({ children }) => {
   const [state, setState] = useState("");
-  console.log(state, "provider");
 
   return (
     <VehiclesListProviderContext.Provider value={state}>
