@@ -21,7 +21,6 @@ function DraggableMarkerExample() {
           />
           <SourceCoordinates />
           <DestinationCoordinate />
-          <VehiclesList />
         </DestinationCoordsProvider>
       </SourceCoordsProvider>
     </MapContainer>

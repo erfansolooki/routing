@@ -10,7 +10,6 @@ const SearchVehicle = () => {
   const vehiclesListAction = useVehiclesListAction();
   const [error, setError] = useState(null);
   const [destinationPosition, setDestinationPosition] = useState("");
-
   const handleSearchInputChanges = (event) => {
     setSearchValue(event.target.value);
   };
@@ -44,25 +43,32 @@ const SearchVehicle = () => {
   return (
     <main className="searchVehicle">
       <section className="main">
-        <section
-          className={!destinationPosition ? "hiddenSearchBar" : "showSearchBar"}
-        >
+        <section>
           <RiSearchLine className="d-block" onClick={listOfVehiclesHandle} />
           <input
             type="text"
             placeholder="نوع ماشین آلات"
             value={searchValue}
             onChange={handleSearchInputChanges}
-            disabled={!destinationPosition ? true : false}
           />
           <p>{error}</p>
         </section>
         <button
-          className={!destinationPosition ? "disable" : "active"}
-          disabled={!destinationPosition ? true : false}
+          className={
+            destinationPosition == 0 || destinationPosition == null
+              ? "disable"
+              : "active"
+          }
+          disabled={
+            destinationPosition == 0 || destinationPosition == null
+              ? true
+              : false
+          }
           onClick={SendRequestHandle}
         >
-          {!destinationPosition ? "ابتدا مقصد را مشخص کنید" : "ثبت درخواست"}
+          {destinationPosition == 0 || destinationPosition == null
+            ? "ابتدا مقصد را مشخص کنید"
+            : "ثبت درخواست"}
         </button>
       </section>
     </main>
