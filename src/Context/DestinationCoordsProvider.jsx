@@ -18,9 +18,11 @@ const DestinationCoordsProvider = ({ children }) => {
   });
 
   localStorage.setItem(
-    "destinationPosition",
+    "destinationLatitudePosition",
     JSON.stringify(position.latitude)
   );
+
+  localStorage.setItem("destinationPosition", JSON.stringify(position));
 
   return (
     <DestinationProvider.Provider value={position}>

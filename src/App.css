@@ -5,6 +5,8 @@
 .App {
   font-family: var(--font-family);
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .leaflet-container {
@@ -34,11 +36,27 @@
   direction: rtl;
   animation: sourceMount;
   animation-duration: 1.1s;
-  width: max-content;
+  width: 21rem;
   height: max-content;
   pointer-events: none;
   pointer-events: visiblePainted;
 }
+
+@media only screen and (max-width: 375px) {
+
+  .sourceCoordinates,
+  .destinationCoordinates {
+    width: 16rem;
+    font-size: 9px;
+  }
+
+  .sourceCoordinates svg, .destinationCoordinates svg {
+    font-size: 12px !important;
+  }
+}
+
+
+
 
 .destinationCoordinates {
   top: 3.5rem;
@@ -49,7 +67,7 @@
 }
 
 .sourceText {
-  margin-left: 4px;
+  margin: 0 4px;
 }
 
 .sourceCoordinates svg,

@@ -44,7 +44,7 @@
     max-width: 15rem;
 }
 
-[type=button]:not(:disabled),
+.formContainer [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled),
 .formContainer button:not(:disabled) {
@@ -54,11 +54,16 @@
 }
 
 .loginForm .row {
-    height: 30rem;
+    height: 40rem;
 }
 
 @media only screen and (min-width: 992px) {
     .formContainer {
         margin: 0 80px;
     }
+}
+
+.loginBorder {
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

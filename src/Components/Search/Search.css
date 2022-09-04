@@ -9,10 +9,8 @@
 }
 
 .searchVehicle {
-    display: flex;
-    justify-content: center;
+    display: inline-block;
     z-index: 1000;
-    width: 100%;
     position: absolute;
     bottom: 0;
     animation: selectVehicle;
@@ -61,7 +59,7 @@
 
 .searchVehicle svg {
     position: absolute;
-    top: 18px;
+    top: 25px;
     margin-left: 16px;
     color: rgb(126 111 111);
     cursor: pointer;
